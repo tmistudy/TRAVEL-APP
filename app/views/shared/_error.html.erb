@@ -1,0 +1,5 @@
+<% if flash[:notice_success] %>
+  <p class="flash-notice"><%= flash[:notice_success] %></p>
+<% elsif flash[:notice_fail] %>
+  <p class="flash-notice-fail"><%= flash[:notice_fail] %></p>
+<% end %>

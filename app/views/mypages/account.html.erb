@@ -1,0 +1,38 @@
+<div class="mypage-container">
+  <div class="mypage-content">
+    <div class="mypage-left left-media">
+      <ul>
+        <li class="active-line"><%= link_to 'アカウント', mypages_account_path,class: "account-link" %></li>
+        <li><%= link_to 'プロフィール', mypages_profile_path,class: "profile-link" %></li>
+      </ul>
+    </div>
+    <div class="mypage-right">
+      <div class="mypage-account">
+        <div class="accounts-info">
+          <h3>アカウント</h2>
+        </div>
+        <div class="accounts-info">
+          <div class="account-info">
+            <label>メールアドレス</label>
+            <div><%= current_user.email %></div>
+          </div>
+        </div>
+        <div class="accounts-info">
+          <div class="account-info">
+            <label>パスワード</label>
+            <div class="acount-info-passward">*********</div>
+          </div>
+        </div>
+        <div class="account-edit">
+            <%= link_to '編集', edit_user_registration_path,class: "edit-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $('.profile-link').css('color', '#000');
+    $('.account-link').css('color', '#4a90e2');
+  });
+</script>

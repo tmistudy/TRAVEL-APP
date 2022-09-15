@@ -1,0 +1,32 @@
+<%= render "shared/error" %>
+<div class="reserve-content">
+<h1>予約済みルーム一覧</h1>
+<div class="scroll">
+<table class="reservations">
+  <thead>
+    <tr class="reserve-tr" align="center">
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @reservations.each do |reservation| %>
+    <tr class="reserve-tr">
+      <td><%= link_to image_tag(reservation.image.url),"/rooms/#{reservation[:room_id]}"%></td>
+      <td><%= link_to reservation.room_name,"/rooms/#{reservation[:room_id]}" ,class:"reserve-room-link" %></td>
+      <td><%= reservation.introduction %></td>
+      <td>¥ <%= reservation[:total_price] %></td>
+      <td><%= reservation[:start_date] %></td>
+      <td><%= reservation[:end_date] %></td>
+      <td><%= reservation[:reserved_date].slice(0..15) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+</div>
