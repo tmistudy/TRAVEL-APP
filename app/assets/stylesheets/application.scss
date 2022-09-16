@@ -779,6 +779,10 @@ textarea::placeholder {
   padding: 10px;
 }
 
+.reservations {
+  width: 100%;
+}
+
 .reservations tbody tr:nth-child(even) {
   background-color: #f9fafb;
 }

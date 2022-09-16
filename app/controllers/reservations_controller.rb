@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
       if @start_date.to_date < today
         flash[:notice_fail] = "今日以降の日にちを選択してください"
         redirect_to "/rooms/#{id}"
-      elsif @start_date > @end_date
+      elsif @start_date >= @end_date
         flash[:notice_fail] = "開始日以降の日にちを選択してください"
         redirect_to "/rooms/#{id}"
       else
