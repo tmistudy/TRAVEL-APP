@@ -1,0 +1,52 @@
+<div class="mypage-container">
+  <div class="mypage-content">
+    <div class="mypage-left left-media">
+      <ul>
+        <li><%= link_to 'アカウント', mypages_account_path,class: "account-link" %></li>
+        <li class="active-line"><%= link_to 'プロフィール', mypages_profile_path,class: "profile-link" %></li>
+      </ul>
+    </div>
+      <div class="mypage-right">
+      <%= render "shared/error" %>
+        <div class="mypage-account">
+          <div class="accounts-info">
+            <h3>プロフィール</h2>
+          </div>
+          <%= form_with model: @mypage,url: mypages_update_path do |f| %>
+            <div class="accounts-info">
+              <div class="account-info">
+                <div class="profile-image"><%= image_tag @mypage.my_img.url ,class: "profile-img" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :my_img ,"アイコン画像" %><span>必須</span></label>
+                <div><%= f.file_field :my_img %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :name ,"名前" %><span>必須</span></label>
+                <div><%= f.text_field :name,value: @mypage.name,placeholder: "名前を入力" ,class: "name-update" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :self_introduction ,"自己紹介" %><span>必須</span></label>
+                <div><%= f.text_area :self_introduction,value: @mypage.self_introduction,placeholder: "自己紹介を入力",class: "intro-update" %></div>
+              </div>
+            </div>
+            <div class="account-edit">
+                <%= f.submit "更新",class: "update-link" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $('.profile-link').css('color', '#4a90e2');
+    $('.account-link').css('color', '#000');
+  });
+</script>

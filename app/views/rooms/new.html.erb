@@ -1,0 +1,58 @@
+<div class="room-new-container">
+  <div class="mypage-content">
+    <div class="mypage-left left-media">
+      <ul>
+        <li class="active-line"><%= link_to '基本情報', rooms_new_path,class: "account-link" %></li>
+      </ul>
+    </div>
+    <div class="mypage-right">
+    <%= render "shared/error" %>
+        <div class="mypage-account">
+          <div class="accounts-info">
+            <h3>ルーム情報登録</h2>
+          </div>
+          <%= form_with model: @room do |f| %>
+            <%= f.hidden_field :user_id, value: @user_id %>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :room_name, "ルーム名" %><span>必須</span></label>
+                <div><%= f.text_field :room_name,placeholder: "ルーム名を入力" ,class: "room-field" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :introduction,"ルーム紹介" %><span>必須</span></label>
+                <div><%= f.text_area :introduction,placeholder: "ルーム説明を入力" ,class: "room-field room-field-intro" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :price, "料金" %><span>必須</span></label>
+                <div><%= f.text_field :price,placeholder: "1日当たりの料金を入力",class: "room-field" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :address, "住所" %><span>必須</span></label>
+                <div><%= f.text_field :address,placeholder: "住所を入力",class: "room-field" %></div>
+              </div>
+            </div>
+            <div class="accounts-info">
+              <div class="account-info">
+                <label><%= f.label :image ,"ルーム画像" %><span>必須</span></label>
+                <div><%= f.file_field :image %></div>
+              </div>
+            </div>
+            <div class="account-edit">
+                <%= f.submit "登録",class: "update-link" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $('.account-link').css('color', '#4a90e2');
+  });
+</script>
